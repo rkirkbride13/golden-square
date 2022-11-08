@@ -1,4 +1,4 @@
-require 'greet.rb'
+require 'greet'
 
 RSpec.describe "greet method" do
   it "greets a person" do

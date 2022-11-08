@@ -1,4 +1,4 @@
-require 'check_codeword.rb'
+require 'check_codeword'
 
 RSpec.describe "check_codeword method" do
   it "returns Correct! if argument is horse" do
