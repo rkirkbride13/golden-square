@@ -11,4 +11,16 @@ RSpec.describe DiaryEntry do
     result = entry.contents
     expect(result).to eq "some text"
   end
+
+  it "should count the number of words in the contents when calling count_words method" do
+    entry = DiaryEntry.new("Makers", "some text")
+    result = entry.count_words
+    expect(result).to eq 2
+  end
+
+  it "should count the number of words in the contents when calling count_words method" do
+    entry = DiaryEntry.new("Makers", "word " * 200)
+    result = entry.count_words
+    expect(result).to eq 200
+  end
 end
