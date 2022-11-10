@@ -19,4 +19,18 @@ RSpec.describe GrammarStats do
     expect(result).to eq true
   end
 
+  it "should return 0 if we only do once check and the check is false" do
+    text = GrammarStats.new
+    text.check("this is bad.")
+    result = text.percentage_good
+    expect(result).to eq 0
+  end
+
+  it "should return 100 if we only do once check and the check is true " do
+    text = GrammarStats.new
+    text.check("This is bad.")
+    result = text.percentage_good
+    expect(result).to eq 100
+  end
+
 end
