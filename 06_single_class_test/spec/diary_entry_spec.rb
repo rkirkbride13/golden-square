@@ -28,6 +28,18 @@ RSpec.describe DiaryEntry do
     entry = DiaryEntry.new("Makers", "word " * 200)
     result = entry.reading_time(50)
     expect(result).to eq 4
-
   end
+
+  it "should return a string with a number of words, depending on the wpm and number of minutes to read" do
+    entry = DiaryEntry.new("Makers", "word " * 5)
+    result = entry.reading_chunk(1, 3)
+    expect(result).to eq ("word " * 2 + "word")
+  end
+
+  it "should return a string with a number of words, depending on the wpm and number of minutes to read" do
+    entry = DiaryEntry.new("Makers", "word " * 200)
+    result = entry.reading_chunk(50, 2)
+    expect(result).to eq ("word " * 99 + "word")
+  end
+
 end
