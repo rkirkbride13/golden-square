@@ -64,4 +64,8 @@ RSpec.describe DiaryEntry do
     expect(result).to eq ("one two three four")
   end
 
+  it "it will fail if reading time is 0" do
+    entry = DiaryEntry.new("Makers", "one two three four five six")
+    expect { entry.reading_time(0)}.to raise_error "This person can not read"
+  end
 end

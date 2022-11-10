@@ -18,6 +18,7 @@ class DiaryEntry
   end
 
   def reading_time(wpm) 
+    fail "This person can not read" unless wpm.positive?
     count_words / wpm
   end
 
