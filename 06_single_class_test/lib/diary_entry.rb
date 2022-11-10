@@ -18,7 +18,6 @@ class DiaryEntry
   end
 
   def reading_time(wpm) 
-    fail "This person can not read" unless wpm.positive?
     count_words / wpm
   end
 
@@ -34,7 +33,6 @@ class DiaryEntry
     end
     words_in_contents[begin_at...end_at].join(" ")
 
-    
     # `wpm` is an integer representing the number
                                   # of words the user can read per minute
                                   # `minutes` is an integer representing the
