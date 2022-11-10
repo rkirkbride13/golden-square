@@ -23,4 +23,11 @@ RSpec.describe DiaryEntry do
     result = entry.count_words
     expect(result).to eq 200
   end
+
+  it "should return a number of minutes of reading time" do
+    entry = DiaryEntry.new("Makers", "word " * 200)
+    result = entry.reading_time(50)
+    expect(result).to eq 4
+
+  end
 end
