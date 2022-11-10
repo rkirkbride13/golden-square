@@ -17,11 +17,9 @@ class GrammarStats
   end
 
   def percentage_good 
-    if @checks.include? true
-      100
-    else 
-      0
-    end
+    number_of_good_checks = (@checks.count true).to_f
+    total_number_of_checks = @checks.length
+    (number_of_good_checks / total_number_of_checks) * 100
   end
 
 end

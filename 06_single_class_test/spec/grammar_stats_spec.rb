@@ -33,4 +33,14 @@ RSpec.describe GrammarStats do
     expect(result).to eq 100
   end
 
+  it "should return 50 if we have 2xtrue checks and 2xfalse checks" do
+    text = GrammarStats.new
+    text.check("This is good.")
+    text.check("This is good!")
+    text.check("This is bad")
+    text.check("this is bad!")
+    result = text.percentage_good
+    expect(result).to eq 50
+  end
+
 end
