@@ -49,4 +49,11 @@ RSpec.describe GrammarStats do
       expect{text.check("")}.to raise_error "There are no words to check"
     end
   end
+
+  context "if we try to check the percentage_good before anything has been check" do
+    it "fails" do
+      text = GrammarStats.new
+      expect{text.percentage_good}.to raise_error "There are no results to check"
+    end
+  end
 end
