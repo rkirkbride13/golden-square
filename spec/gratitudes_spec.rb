@@ -7,12 +7,6 @@ RSpec.describe Gratitudes do
     expect(result).to eq true
   end
 
-  it 'initializes with an empty array' do
-    gratitudes = Gratitudes.new
-    result = @gratitudes
-    expect(result).to eq []
-  end
-
   it 'adds gratitude of life to empty array' do
     gratitudes = Gratitudes.new
     result = gratitudes.add("life")
