@@ -13,4 +13,10 @@ RSpec.describe GrammarStats do
     expect(result).to eq false
   end
 
+  it "if text does have end with sentence-ending punctuation and first letter is capital it returns true" do
+    text = GrammarStats.new
+    result = text.check("This is bad.")
+    expect(result).to eq true
+  end
+
 end
