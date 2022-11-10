@@ -42,5 +42,11 @@ RSpec.describe GrammarStats do
     result = text.percentage_good
     expect(result).to eq 50
   end
-
+  
+  context "if an empty string is pass to check method" do
+    it "fail" do
+      text = GrammarStats.new
+      expect{text.check("")}.to raise_error "There are no words to check"
+    end
+  end
 end

@@ -4,6 +4,7 @@ class GrammarStats
   end
 
   def check(text)
+    fail "There are no words to check" if text == ""
     is_first_letter_capital = (text[0] == text[0].capitalize)
     is_last_letter_punctuation = [".","?","!"].include?(text[-1])
 
