@@ -41,5 +41,18 @@ RSpec.describe DiaryEntry do
     result = entry.reading_chunk(50, 2)
     expect(result).to eq ("word " * 99 + "word")
   end
+  it "if reading chunk called againg it should return next chunk of words " do
+    entry = DiaryEntry.new("Makers", "word " * 100 + "dog " * 100)
+    entry.reading_chunk(50, 2)
+    result = entry.reading_chunk(50, 2)
+    expect(result).to eq ("dog " * 99 + "dog")
+  end
+  it "if reading chunk was finish it should go back to the start " do
+    entry = DiaryEntry.new("Makers", "word " * 100 + "dog " * 100)
+    entry.reading_chunk(50, 2)
+    entry.reading_chunk(50, 2)
+    result = entry.reading_chunk(50, 2)
+    expect(result).to eq ("word " * 99 + "word")
+  end
 
 end
