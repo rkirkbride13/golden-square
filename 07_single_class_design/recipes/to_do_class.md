@@ -4,6 +4,7 @@
 
 _Put or write the user story here. Add any clarifying notes you might have._
 
+THESE ARE THE METHODS NEEDED I THINK
 initialize with empty array
 add todo method that pushes todo into array
 print list method that prints the array of todos
