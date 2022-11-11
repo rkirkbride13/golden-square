@@ -15,7 +15,5 @@ class ToDoList
   def mark_complete(task)
     fail "This task is not on list" unless @tasks.include?(task)
     @tasks -= [task]
-    
-
   end
 end
