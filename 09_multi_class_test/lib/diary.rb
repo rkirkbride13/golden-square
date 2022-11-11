@@ -5,7 +5,7 @@ class Diary
   end
 
   def add(entry) # entry is an instance of DiaryEntry
-    # Returns nothing
+    # Returns nothing 
     @entries.push(entry)
   end
 
@@ -24,6 +24,7 @@ class Diary
                         # the number of words the user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes
     # if the user were to read all entries in the diary.
+    fail "This person can not read" if wpm <= 0
     @entries.sum { |entry| entry.reading_time(wpm) }
   end
 
@@ -35,6 +36,9 @@ class Diary
     # Returns an instance of diary entry representing the entry that is closest 
     # to, but not over, the length that the user could read in the minutes they
     # have available given their reading speed.
+    fail "This person can not read" if wpm <= 0
+    readable_entries = @entries.select { |entry| entry.reading_time(wpm) <= minutes}
+    readable_entries.max { |a, b| a.count_words <=> b.count_words }
   end
 end
 

@@ -31,5 +31,43 @@ RSpec.describe "integration" do
       diary.add(diary_entry_2)
       expect(diary.reading_time(2)).to eq 3
     end
+
+    it "raises error when words per minute is 0" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents")
+      diary_entry_2 = DiaryEntry.new("my title", "End of week one")
+      diary.add(diary_entry_1)
+      diary.add(diary_entry_2)
+      expect{diary.reading_time(0)}.to raise_error "This person can not read"
+    end
+  end
+
+  context "#find_best_entry_for_reading_time" do
+    it "should return the longest readable entry based on wpm and minutes" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents")
+      diary_entry_2 = DiaryEntry.new("my title", "End of week one")
+      diary.add(diary_entry_1)
+      diary.add(diary_entry_2)
+      expect(diary.find_best_entry_for_reading_time(2, 1)).to eq diary_entry_1
+    end
+
+    it "should return the longest readable entry based on wpm and minutes" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents")
+      diary_entry_2 = DiaryEntry.new("my title", "End of week one")
+      diary.add(diary_entry_1)
+      diary.add(diary_entry_2)
+      expect(diary.find_best_entry_for_reading_time(5, 1)).to eq diary_entry_2
+    end
+
+    it "should return the longest readable entry based on wpm and minutes" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents")
+      diary_entry_2 = DiaryEntry.new("my title", "End of week one")
+      diary.add(diary_entry_1)
+      diary.add(diary_entry_2)
+      expect(diary.find_best_entry_for_reading_time(1, 1)).to eq nil
+    end
   end
 end
