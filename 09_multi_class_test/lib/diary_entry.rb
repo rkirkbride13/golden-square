@@ -18,22 +18,16 @@ class DiaryEntry
   end
 
   def reading_time(wpm) 
-    fail "This person can not read" if wpm <= 0
-    count_words / wpm
+    wpm <= 0 ? (fail "This person can not read") : count_words / wpm
   end
 
   def reading_chunk(wpm, minutes) 
     words_in_contents = @contents.split(" ")
     words_read = wpm * minutes # wpm (50) * minutes (2) = 100 words
-
     begin_at = @furthestwordread
     end_at = words_read + begin_at
-    @furthestwordread = end_at
-    if end_at >= count_words
-      @furthestwordread = 0
-    end
+    end_at >= count_words ? @furthestwordread = 0 : @furthestwordread = end_at
     words_in_contents[begin_at...end_at].join(" ")
-
     # `wpm` is an integer representing the number
                                   # of words the user can read per minute
                                   # `minutes` is an integer representing the

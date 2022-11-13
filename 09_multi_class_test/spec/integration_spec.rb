@@ -2,6 +2,7 @@ require "diary"
 require "diary_entry"
 
 RSpec.describe "integration" do
+  
   context "Add entry to diary" do
     it "adds entry into array" do
       diary = Diary.new
