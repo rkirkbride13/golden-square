@@ -58,20 +58,6 @@ RSpec.describe 'integration' do
       to_do_list.add(to_do_2)
       to_do_list.add(to_do_3)
       to_do_list.give_up!
-      expect(to_do_1.task).to eq "Done"
-      expect(to_do_2.task).to eq "Done"
-      expect(to_do_3.task).to eq "Done"
-    end
-
-    it "marks all tasks as complete" do
-      to_do_list = TodoList.new
-      to_do_1 = Todo.new("Walk the dog")
-      to_do_2 = Todo.new("Go to shop")
-      to_do_3 = Todo.new("Eat lunch")
-      to_do_list.add(to_do_1)
-      to_do_list.add(to_do_2)
-      to_do_list.add(to_do_3)
-      to_do_list.give_up!
       expect(to_do_list.complete).to eq [to_do_1, to_do_2, to_do_3]
     end
 

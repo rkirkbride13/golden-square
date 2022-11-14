@@ -8,14 +8,14 @@ class TodoList
   end
 
   def incomplete
-    @list.select { |task| task.done? == false}
+    @list.reject(&:done?)
   end
 
   def complete
-    @list.select { |task| task.done?}
+    @list.select(&:done?)
   end
 
   def give_up!
-    @list.each { |task| task.mark_done!}
+    @list.each(&:mark_done!)
   end
 end
