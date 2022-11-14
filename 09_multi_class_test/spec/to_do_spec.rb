@@ -19,6 +19,11 @@ RSpec.describe Todo do
       to_do_1.mark_done!
       expect(to_do_1.task).to eq "Done"
     end
+
+    it "marks a todo as done and returns nothing" do
+      to_do_1 = Todo.new("Walk the dog")
+      expect(to_do_1.mark_done!).to eq "Done"
+    end
   end
 
   context "#done?" do
