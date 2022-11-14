@@ -4,6 +4,26 @@
 
 _Put or write the user story here. Add any clarifying notes you might have._
 
+As a user
+So that I can record my experiences
+I want to keep a regular diary
+
+As a user
+So that I can reflect on my experiences
+I want to read my past diary entries
+
+As a user
+So that I can reflect on my experiences in my busy day
+I want to select diary entries to read based on how much time I have and my reading speed
+
+As a user
+So that I can keep track of my tasks
+I want to keep a todo list along with my diary
+
+As a user
+So that I can keep track of my contacts
+I want to see a list of all of the mobile phone numbers in all my diary entries
+
 ## 2. Design the Class System
 
 _Consider diagramming out the classes and their relationships. Take care to
@@ -11,57 +31,122 @@ focus on the details you see as important, not everything. The diagram below
 uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com_
 
 ```
-┌────────────────────────────┐
-│ MusicPlayer                │
-│                            │
-│ - add(track)               │
-│ - all                      │
-│ - search_by_title(keyword) │
-│   => [tracks...]           │
-└───────────┬────────────────┘
+
+
+    ┌─────────────────────────┐
+    │ Diary                   │
+    │ -------                 │
+    │ - initialize            │
+    │ - add(entry)            │
+    │ - reading_time(wpm)     │
+    │ - count_words           │
+    │ -find_best_entry(wpm,min│
+    └────────────┬────────────┘
+                 │
+                 │
+                 │
+   ┌─────────────►────────────────┐
+   │             │                │
+   │  DiaryEntry │                │
+   │  ---------- │                │
+   │  - initialize(title,cont,num)│
+   │  - title                     │
+   │  - contents                  │
+   │  - count_words               │
+   │  - phone_number              │
+   │  - reading_time(wpm)         │
+   └──────────────────────────────┘
+
+   ┌────────────────┐
+   │                │
+   │  TodoList      │
+   │  ----------    │
+   │  -initialize   │
+   │  -add(task)    │
+   │  -list         │
+   └────────┬───────┘
             │
-            │ owns a list of
-            ▼
-┌─────────────────────────┐
-│ Track(title, artist)    │
-│                         │
-│ - title                 │
-│ - artist                │
-│ - format                │
-│   => "TITLE by ARTIST"  │
-└─────────────────────────┘
+            │
+            │
+  ┌─────────▼──────────┐
+  │  Todo              │
+  │  ------------      │
+  │  -initialize(todo) │
+  │  -item             │
+  │                    │
+  └────────────────────┘
+
+
 ```
 
 _Also design the interface of each class in more detail._
 
 ```ruby
-class MusicLibrary
+
+class Diary
+
   def initialize
-    # ...
   end
 
-  def add(track) # track is an instance of Track
-    # Track gets added to the library
-    # Returns nothing
+  def add(entry)
   end
 
-  def all
-    # Returns a list of track objects
+  def count_words
+  end
+
+  def reading_time(wpm)
+  end
+
+  def find_best_entry(wpm,minutes)
+  end
+
+  def scan_for_number
+  end
+
+end
+
+class DiaryEntry
+
+  def initialize(title,contents)
+  end
+
+  def title
+  end
+
+  def contents
+  end
+
+  def count_words
+  end
+
+  def reading_time(wpm)
+  end
+
+end
+
+class TodoList
+
+  def initialize
   end
   
-  def search_by_title(keyword) # keyword is a string
-    # Returns a list of tracks with titles that include the keyword
+  def list
   end
-end
-
-class Track
-  def initialize(title, artist) # title and artist are both strings
+  
+  def add(task)
   end
 
-  def format
-    # Returns a string of the form "TITLE by ARTIST"
-  end
 end
+
+class Todo
+
+  def initialize(task)
+  end
+
+  def task
+  end
+
+end
+
 ```
 
 ## 3. Create Examples as Integration Tests
