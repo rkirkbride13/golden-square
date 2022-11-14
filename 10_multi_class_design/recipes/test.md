@@ -162,28 +162,28 @@ combinations that reflect the ways in which the system will be used._
 # integration for Diary and DiaryEntry
 
 # Gets all tracks
-dairy = Diary.new
+diary = Diary.new
 entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
 entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
 diary.add(entry_1)
 diary.add(entry_2)
 diary.entries # => [entry_1, entry_2]
 
-dairy = Diary.new
+diary = Diary.new
 entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
 entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
 diary.add(entry_1)
 diary.add(entry_2)
 diary.count_words => 6
 
-dairy = Diary.new
+diary = Diary.new
 entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
 entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
 diary.add(entry_1)
 diary.add(entry_2)
 diary.reading_time(2) => 3
 
-dairy = Diary.new
+diary = Diary.new
 entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
 entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
 entry_3 = DiaryEntry.new("My Title 2", "1 2 3 4 5 6")
@@ -192,7 +192,7 @@ diary.add(entry_2)
 diary.add(entry_3)
 diary.find_best_entry(2, 5) => entry_3
 
-dairy = Diary.new
+diary = Diary.new
 entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
 entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
 entry_3 = DiaryEntry.new("My Title 2", "some contents 079347284763")
