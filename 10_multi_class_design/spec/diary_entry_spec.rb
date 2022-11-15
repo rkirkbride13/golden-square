@@ -17,4 +17,9 @@ it "counts the words in an entry" do
   expect(entry_1.count_words).to eq 3
 end
 
+it "calculates reading time for each entry" do
+  entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+  expect(entry_1.reading_time(2)).to eq 1.5
+end
+
 end
