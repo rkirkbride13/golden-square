@@ -54,8 +54,8 @@ RSpec.describe "diary integration tests" do
   
   it "finds any phone numbers that are listed in the contents of an entry" do
     diary = Diary.new
-    entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-    entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
+    entry_1 = DiaryEntry.new("My Title 1", "My contents 0 7")
+    entry_2 = DiaryEntry.new("My Title 2", "My contents 07xxxxxxxxxx")
     entry_3 = DiaryEntry.new("My Title 2", "some contents 079347284763")
     entry_4 = DiaryEntry.new("My Title 2", "some 079347284799 contents")
     diary.add(entry_1)

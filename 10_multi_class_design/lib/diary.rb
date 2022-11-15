@@ -32,13 +32,18 @@ class Diary
 
   def scan_for_number
     fail "No entries to read" if @entries.empty?
-    entries_with_number = @entries.select do |entry|
-      entry.contents.include?("07")
-    end
-    entries_with_number.map {|entry| 
+    entries_with_number = @entries.select {|entry| entry.contents.include?("07")}
+    
+    entries_with_number.map do |entry| 
       contents = entry.contents
       zero = contents.index("0")
       seven = contents.index("7")
-      contents[zero, 12]}
+      index_difference = seven - zero
+      number = contents[zero, 12]
+      if index_difference == 1 && number.count("0123456789") == 12
+        number
+      end
+    end.compact
   end
+
 end
