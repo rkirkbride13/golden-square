@@ -162,61 +162,61 @@ combinations that reflect the ways in which the system will be used._
 # integration for Diary and DiaryEntry
 
 # Gets all tracks
-diary = Diary.new
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
-diary.add(entry_1)
-diary.add(entry_2)
-diary.entries # => [entry_1, entry_2]
+# diary = Diary.new
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
+# diary.add(entry_1)
+# diary.add(entry_2)
+# diary.entries # => [entry_1, entry_2]
 
-diary = Diary.new
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
-diary.add(entry_1)
-diary.add(entry_2)
-diary.count_words => 6
+# diary = Diary.new
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
+# diary.add(entry_1)
+# diary.add(entry_2)
+# diary.count_words => 6
 
-diary = Diary.new
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
-diary.add(entry_1)
-diary.add(entry_2)
-diary.reading_time(2) => 3
+# diary = Diary.new
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
+# diary.add(entry_1)
+# diary.add(entry_2)
+# diary.reading_time(2) => 3
 
-diary = Diary.new
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
-entry_3 = DiaryEntry.new("My Title 2", "1 2 3 4 5 6")
-diary.add(entry_1)
-diary.add(entry_2)
-diary.add(entry_3)
-diary.find_best_entry(2, 5) => entry_3
+# diary = Diary.new
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
+# entry_3 = DiaryEntry.new("My Title 2", "1 2 3 4 5 6")
+# diary.add(entry_1)
+# diary.add(entry_2)
+# diary.add(entry_3)
+# diary.find_best_entry(2, 5) => entry_3
 
-diary = Diary.new
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
-entry_3 = DiaryEntry.new("My Title 2", "some contents 079347284763")
-diary.add(entry_1)
-diary.add(entry_2)
-diary.add(entry_3)
-diary.scan_for_number => ["079347284763"]
+# diary = Diary.new
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_2 = DiaryEntry.new("My Title 2", "My contents 2")
+# entry_3 = DiaryEntry.new("My Title 2", "some contents 079347284763")
+# diary.add(entry_1)
+# diary.add(entry_2)
+# diary.add(entry_3)
+# diary.scan_for_number => ["079347284763"]
 
 ```
 
 ```ruby
 # integration for TodoList and Todo
 
-todo_list = TodoList.new
-todo_1 = Todo.new("Walk dog")
-todo_list.add(todo_1)
-todo_list.list => [todo_1]
+# todo_list = TodoList.new
+# todo_1 = Todo.new("Walk dog")
+# todo_list.add(todo_1)
+# todo_list.list => [todo_1]
 
-todo_list = TodoList.new
-todo_1 = Todo.new("Walk dog")
-todo_2 = Todo.new("Walk cat")
-todo_list.add(todo_1)
-todo_list.add(todo_2)
-todo_list.list => [todo_1, todo_2]
+# todo_list = TodoList.new
+# todo_1 = Todo.new("Walk dog")
+# todo_2 = Todo.new("Walk cat")
+# todo_list.add(todo_1)
+# todo_list.add(todo_2)
+# todo_list.list => [todo_1, todo_2]
 
 ```
 
@@ -228,54 +228,53 @@ a more granular level of detail._
 ```ruby
 # Diary
 
-# Constructs a track
-diary = Diary.new
-diary.entries => []
+# diary = Diary.new
+# diary.entries => []
 
-diary = Diary.new
-diary.count_words => fail "No words to count"
+# diary = Diary.new
+# diary.count_words => fail "No words to count"
 
-diary = Diary.new
-diary.reading_time(5) => fail "No entries to read"
+# diary = Diary.new
+# diary.reading_time(5) => fail "No entries to read"
 
-diary = Diary.new
-diary.find_best_entry(5, 6) => fail "No entries to read"
+# diary = Diary.new
+# diary.find_best_entry(5, 6) => fail "No entries to read"
 
-diary = Diary.new
-diary.scan_for_number => fail "No entries to read"
+# diary = Diary.new
+# diary.scan_for_number => fail "No entries to read"
 
 ```
 
 ```ruby
 # DiaryEntry
 
-entry = DiaryEntry.new("My Title 1", "My contents 1")
-entry.title => "My Title 1"
+# entry = DiaryEntry.new("My Title 1", "My contents 1")
+# entry.title => "My Title 1"
 
-entry = DiaryEntry.new("My Title 1", "My contents 1")
-entry.contents => "My contents 1"
+# entry = DiaryEntry.new("My Title 1", "My contents 1")
+# entry.contents => "My contents 1"
 
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_1.count_words => 3
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_1.count_words => 3
 
-entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
-entry_1.reading_time(2) => 2
+# entry_1 = DiaryEntry.new("My Title 1", "My contents 1")
+# entry_1.reading_time(2) => 2
 
 ```
 
 ```ruby
 # TodoList
 
-todo_list = TodoList.new
-todo_list.list => []
+# todo_list = TodoList.new
+# todo_list.list => []
 
 ```
 
 ```ruby
 # Todo
 
-todo_1 = Todo.new("Walk dog")
-todo_1.task => "Walk dog"
+# todo_1 = Todo.new("Walk dog")
+# todo_1.task => "Walk dog"
 
 
 ```
