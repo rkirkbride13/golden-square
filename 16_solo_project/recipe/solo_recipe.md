@@ -39,13 +39,13 @@ class Menu
   end
 
   def add(dish)
-    dishes.each do |dish, price|
+    dish.each do |dish, price|
       @menu[dish] = price
     end
   end
 
   def list
-    menu = @hash.map do |dish, price|
+    menu = @menu.map do |dish, price|
       "#{dish.dish}: £#{price.price}"
     end
     return menu

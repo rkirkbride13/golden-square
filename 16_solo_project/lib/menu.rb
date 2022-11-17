@@ -7,6 +7,10 @@ class Menu
     @menu[dish.dish] = dish.price
   end
 
+  def remove(dish)
+    @menu.delete(dish.dish)
+  end
+
   def list
     menu = @menu.map do |dish, price|
       "#{dish}: £#{price}"

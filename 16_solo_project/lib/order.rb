@@ -26,7 +26,4 @@ class Order
     return "£#{total}"
   end
 
-  def print_receipt
-    check_dishes
-  end
 end
