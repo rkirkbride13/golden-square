@@ -15,9 +15,6 @@ class Menu
 
   def list
     return "Nothing on menu" if @menu.empty?
-    menu = @menu.map do |name, price|
-      "#{name}: £#{price}"
-    end
-    return menu
+    return @menu.map {|name, price| "#{name}: £#{price}"}
   end
 end

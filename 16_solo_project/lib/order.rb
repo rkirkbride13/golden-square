@@ -17,18 +17,13 @@ class Order
 
   def check_dishes
     return "Nothing on order" if @order.empty?
-    order = @order.map do |name, price|
-      "#{name}: £#{price}"
-    end
-    return order
+    return @order.map {|name, price| "#{name}: £#{price}"}
   end
 
   def check_price
     return "Nothing on order" if @order.empty?
     total = 0
-    order = @order.map do |name, price|
-      total += price
-    end
+    @order.each { |name, price| total += price}
     return "£#{total}"
   end
 
