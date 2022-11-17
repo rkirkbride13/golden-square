@@ -5,12 +5,8 @@
 _Put or write the user story here. Add any clarifying notes you might have._
 
 As a user
-So that I can keep track of my tasks
-I want a program that I can add todo tasks to and see a list of them.
-
-As a user
-So that I can focus on tasks to complete
-I want to mark tasks as complete and have them disappear from the list.
+So that I can keep track of my music listening
+I want to add tracks I've listened to and see a list of them.
 
 ## 2. Design the Class Interface
 
@@ -19,26 +15,21 @@ _Include the initializer and public methods with all parameters and return value
 ```ruby
 # EXAMPLE
 
-class ToDoList
+class TrackList
   def initialize
-    # initialize with an empty array called tasks
+    # initialize with an empty array called tracks
   end
 
-  def add_task(task) # task is a string
+  def add_track(track) # track is a string
     # No return value
-    # pushes task into tasks array
+    # pushes track into track array
   end
 
   def print_list
-    # Throws an exception if no tasks are listed
-    # Otherwise, returns a string with a list of tasks
+    # Throws an exception if no tracks are listed
+    # Otherwise, returns a string with a list of tracks
   end
 
-  def mark_complete(task) # task is a string
-    # No return value
-    # deletes task from tasks array
-    # Throws an exception if completed task is not in tasks array
-  end
 end
 ```
 
@@ -50,25 +41,26 @@ _Make a list of examples of how the class will behave in different situations._
 # EXAMPLE
 
 # 1
-my_list = ToDoList.new
-my_list.add_task("Walk the dog")
-my_list.print_list # => "My to do list: Walk the dog"
+tracks = TrackList.new
+tracks.add_track("Song 1")
+expect(tracks.print_list).to eq "Your list of track: Song 1"
 
 # 2
-my_list = ToDoList.new
-my_list.print_list # fails with "No task on list."
+tracks = TrackList.new
+tracks.add_track("Song 1")
+tracks.add_track("Under pressure")
+expect(tracks.print_list).to eq "Your list of track: Song 1, Under pressure"
 
 # 3
-my_list = ToDoList.new
-my_list.add_task("Walk the dog")
-my_list.add_task("Go to the shops")
-my_list.mark_complete("Walk the dog")
-my_list.print_list # => "My to do list: Go to the shops"
+tracks = TrackList.new
+tracks.add_track("Song 1")
+tracks.add_track("Under pressure")
+tracks.add_track("song title")
+expect(tracks.print_list).to eq "Your list of track: Song 1, Under pressure, song title"
 
 # 4
-my_list = ToDoList.new
-my_list.add_task("Walk the dog")
-my_list.mark_complete("Go to the shops") # fails with "This task is not on list"
+tracks = TrackList.new
+expect{tracks.print_list}.to raise_error "There are no tracks to print"
 
 ```
 

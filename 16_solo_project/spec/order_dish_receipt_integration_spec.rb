@@ -50,22 +50,6 @@ RSpec.describe "menu, order, dish and receipt integration" do
     expect(order.check_dishes).to eq ["Pizza: £9.99"]
   end
 
-  it "adds dishes to my order and calculates total" do
-    menu = Menu.new
-    dish_1 = Dish.new("Soup", 5.99)
-    dish_2 = Dish.new("Pizza", 9.99)
-    dish_3 = Dish.new("Cake", 4.99)
-    menu.add(dish_1)
-    menu.add(dish_2)
-    menu.add(dish_3)
-    order = Order.new(menu)
-    order.add(dish_1)
-    order.add(dish_3)
-    order.submit
-    receipt = Receipt.new(order)
-    expect(receipt.total).to eq "£10.98"
-  end
-
   it "adds dishes to my order and prints the receipt" do
     menu = Menu.new
     dish_1 = Dish.new("Soup", 5.99)
