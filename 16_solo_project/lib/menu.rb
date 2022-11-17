@@ -4,16 +4,19 @@ class Menu
   end
 
   def add(dish)
-    @menu[dish.dish] = dish.price
+    fail "This dish is already on the menu" if @menu.include?(dish.name)
+    @menu[dish.name] = dish.price
   end
 
   def remove(dish)
-    @menu.delete(dish.dish)
+    fail "This dish doesn't exist on the menu" unless @menu.include?(dish.name)
+    @menu.delete(dish.name)
   end
 
   def list
-    menu = @menu.map do |dish, price|
-      "#{dish}: £#{price}"
+    return "Nothing on menu" if @menu.empty?
+    menu = @menu.map do |name, price|
+      "#{name}: £#{price}"
     end
     return menu
   end

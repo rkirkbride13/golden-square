@@ -4,12 +4,16 @@ class Receipt
   end
 
   def total
-    @total = @order.check_price
+    @order.completed? ? @total = @order.check_price : "Order not yet submitted"
   end
 
   def print
-    order = @order.check_dishes.join(", ")
-    return "#{order}, Total: #{total}"
+    if @order.completed?
+      order = @order.check_dishes.join(", ")
+      return "#{order}, Total: #{total}"
+    else
+      return "Order not yet submitted"
+    end
   end
 
 end
