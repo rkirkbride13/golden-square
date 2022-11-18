@@ -3,11 +3,11 @@ class Order
     @order = {}
     @menu = menu
     @complete = false
+    @total = 0
   end
 
   def add(dish)
-    dish_exists = @menu.list.include?("#{dish.name}: £#{dish.price}")
-    fail "This dish doesn't exist on the menu" unless dish_exists
+    fail "This dish doesn't exist on the menu" unless @menu.remove(dish)
     @order[dish.name] = dish.price
   end
 
@@ -22,9 +22,8 @@ class Order
 
   def check_price
     return "Nothing on order" if @order.empty?
-    total = 0
-    @order.each { |name, price| total += price}
-    return "£#{total}"
+    @order.each { |name, price| @total += price}
+    return "£#{@total}"
   end
 
   def submit
